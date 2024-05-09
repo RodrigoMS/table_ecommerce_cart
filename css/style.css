@@ -1,0 +1,227 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
+
+:root {
+    /*--color-table-header: #4CAF50;*/
+    --color-table: #fff;
+    --color-table-font: #000;
+
+    --color-table-header:#2263f4;
+    --color-table-header-font: #fff;
+
+    --color-button-send-click: #004ff8;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Ubuntu", sans-serif;
+}
+
+html {
+    background: var(--color-table);
+    color: var(--color-table-font);
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+
+    width: 100vw;
+}
+
+.main__title {
+    background: var(--color-table-header);
+    width: 100%;
+    height: 25px;
+    font-size: 15pt;
+    text-align: center;
+    color: var(--color-table-header-font);
+}
+
+.main__products {
+    width: 100%;
+    height: 80vh;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.products__table {
+    border-collapse: collapse;
+
+    /* Não permite que o texto seja quebrado em linhas. */
+    white-space: nowrap;
+
+    /* Largura */
+    width: 100%;
+
+    /* Altura */
+    height: 8vh;
+    /*margin: 0 10px;*/
+}
+
+.products-table__headers {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+
+    background-color: var(--color-table-header);
+    color: var(--color-table-header-font);
+}
+
+.products-table__header, .products-table__cell {
+    padding: 8px;
+}
+
+.products-table__row {
+    transition: 0.2s;
+}
+
+.products-table__cell {
+    padding: 10px 30px;
+}
+
+.products-table__row:hover {
+    transform: scale(1.02);
+    box-shadow: 3px 3px 10px 3px #dddddd;
+}
+
+.figure__image {
+    width: 50px;
+    height: auto;
+}
+
+.quantity {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.products-table__button,
+.send__button {
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+    background: rgba(0,0,0,0);
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.button--increment,
+.button--decrement {
+    width: 40px;
+
+    border: 2px solid var(--color-table-header);
+    border-radius: 20px;
+    font-size: 15pt;
+    text-align: center;
+    font-weight: bold;
+    color: var(--color-table-header);
+    transition: 0.3s;
+}
+
+.button--increment:active,
+.button--decrement:active {
+    background: var(--color-table-header);
+    color: var(--color-table-header-font);
+}
+
+.products-table__quantity {
+    padding: 0px 20px;
+}
+
+.button--delete {
+    color: #ff0000;
+    width: 100%;
+}
+
+
+
+
+
+.main__finish {
+    width: 100%;
+    height: calc(20vh - 25px);
+    
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.finish__total, .finish__send {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    flex: 1 1 250px;
+}
+
+.total-table__label {
+    text-align: right;
+    padding-right: 5px;
+}
+
+.total-table__value {
+    font-weight: bold;
+}
+
+.send__button {
+    background: var(--color-table-header);
+    color: var(--color-table-header-font);
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 18px;
+    padding: 20px;
+}
+
+.send__button:active {
+    background: var(--color-button-send-click);
+}
+
+@media only screen and (max-width: 1000px) {
+    .main__products {
+        overflow-y: auto;
+        overflow-x: auto;
+    }
+
+    .products-table__header:first-child {
+        background-color: var(--color-table-header);
+        position: sticky;
+        z-index: 3;
+        left: 0;
+    }
+
+    .products-table__cell:first-child {
+        padding: 0;
+        z-index: 1;
+        position: sticky;
+        left: 0; 
+    }
+
+    .products-table__figure {
+        background: var(--color-table);
+        background: -webkit-linear-gradient(80deg, var(--color-table) 80%, rgba(255, 255, 255, 0) 100%);
+        background: linear-gradient(80deg, var(--color-table) 80%, rgba(255, 255, 255, 0) 100%);
+        height: 50px;
+        width: 100px;
+        margin: 0;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+}
+
+
+
+@media only screen and (max-width: 500px) {
+    .send__button {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        border-radius: 0;
+        padding: 0;
+    }
+}
